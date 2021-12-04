@@ -69,8 +69,7 @@ def solvef(fnums, displayf):
                     ans += solve_each(ptn,fnums,op1,op2,op3,displayf)
     return ans
 
-def solve(num1, num2, num3, num4, displayf=True):
-    nums = [num1, num2, num3, num4]
+def solve(nums, displayf=True):
     for n in nums:
         if n < 0 or n > 9:
             print("out of range:{}".format(n))
@@ -90,13 +89,16 @@ def solve(num1, num2, num3, num4, displayf=True):
                         ans += solvef(fnums, displayf)
     return ans
 
+def divide_nums(n):
+    return [int(n/1000)%10, int(n/100)%10, int(n/10)%10, n%10]
+
 def search_all(upper):
     n = 0
     i = 0
     while n < 10000:
-        nums = [int(n/1000)%10, int(n/100)%10, int(n/10)%10, n%10]
+        nums = divide_nums(n)
         if nums[0] <= nums[1] and nums[1] <= nums[2] and nums[2] <= nums[3]:
-            ans = solve(nums[0], nums[1], nums[2], nums[3], False)
+            ans = solve(nums, False)
             if ans > 0 and ans <= upper:
                 print(nums)
             i += 1
@@ -105,16 +107,14 @@ def search_all(upper):
                 sys.stdout.write('.')
                 sys.stdout.flush()
         n += 1
+    sys.stdout.write('\n')
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="number 4 solver")
-    parser.add_argument('num1', type=int, help="number #1")
-    parser.add_argument('num2', type=int, help="number #2")
-    parser.add_argument('num3', type=int, help="number #3")
-    parser.add_argument('num4', type=int, help="number #4")
+    parser = argparse.ArgumentParser(description="make10 solver")
+    parser.add_argument('num', type=int, help="number to be checked")
     args = parser.parse_args()
-    if args.num1 > 100:
-        search_all(args.num1-100)
+    if args.num < 0:
+        search_all(-args.num)
     else:
-        ans = solve(args.num1, args.num2, args.num3, args.num4)
+        ans = solve(divide_nums(args.num))
         print("Total {} answers".format(ans))
