@@ -1,2 +1,2 @@
 # make10solver
-Fame number puzzle game "make10" solver
+Famous number puzzle game "make10" solver
