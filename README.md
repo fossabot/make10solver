@@ -1,4 +1,6 @@
 # make10solver
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flychee-52%2Fmake10solver.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Flychee-52%2Fmake10solver?ref=badge_shield)
+
 
 ## Overview
 
@@ -34,3 +36,7 @@ For example, if you specify "1234", the program displays the all solutions of 4 
 If you specify a negative number, the program will display all sets of numbers which have solutions equal or less than the absolute number of specified numbers.
 
 For example, if you specify "-1", the program displays the set of numbers which has only 1 solution, e.g. '1', '1', '5', '8'.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flychee-52%2Fmake10solver.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Flychee-52%2Fmake10solver?ref=badge_large)
